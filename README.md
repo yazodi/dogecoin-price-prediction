@@ -1,70 +1,50 @@
+README.md
 
-# 🐶 Dogecoin Price Prediction using Python
 
-This project focuses on analyzing historical Dogecoin (DOGE) price data and applying machine learning regression techniques to forecast future prices.
+# 🐶 Dogecoin Fiyat Tahmini (Regression Model)
 
-## 📁 Contents
+Bu proje, geçmiş fiyat verilerine göre **Dogecoin'in bir sonraki günkü kapanış fiyatını** tahmin eden bir makine öğrenimi modeli içerir.
 
-- Dataset: `dogecoin_historical.csv`
-- Tools: Python, Jupyter Notebook
-- Libraries: `pandas`, `matplotlib`, `seaborn`, `AutoTS`
+---
 
-## ⚙️ Technologies Used
+## 📁 Proje Dosyaları
 
-- Python 3.x
-- Jupyter Notebook
-- AutoTS (Automated Time Series Forecasting)
+- `dogecoin_historical.csv` → Ham veri seti
+- `train_dogecoin_model.py` → Model eğitim kodları
+- `dogecoin_price_model.pkl` → Eğitilmiş model
+- `app.py` → Streamlit kullanıcı arayüzü
+- `requirements.txt` → Gerekli Python paketleri
 
-## 📊 Workflow
+---
 
-1. **Data Loading**
-   - DOGE price data is loaded from a `.csv` file using `pandas`.
+## 🚀 Kullanım
 
-2. **Data Cleaning**
-   - Missing values are handled.
-   - Column names are stripped of any extra spaces.
-
-3. **Visualization**
-   - Dogecoin close prices are visualized using `matplotlib` and `seaborn`.
-
-4. **Model Training**
-   - `AutoTS` is used for automatic time series regression modeling.
-   - The model selects the best algorithm to predict future DOGE prices.
-
-## 🧠 Algorithms Used
-
-AutoTS automatically evaluates multiple models such as:
-- Linear Regression
-- Decision Tree Regression
-- ARIMA
-- Prophet
-- Other time series models
-
-## 📦 Requirements
+### 1. Ortamı Kur
 
 ```bash
-pip install pandas matplotlib seaborn autots
-```
+pip install -r requirements.txt
 
-## 📈 Sample Visualization
+Modeli Eğit
+python train_dogecoin_model.py
 
-```python
-plt.plot(data["close"])
-plt.title("DOGE/USD Daily Close Price")
-plt.xlabel("Date")
-plt.ylabel("Price (USD)")
-```
+Uygulamayı Başlat
+streamlit run app.py
 
-## 📌 Notes
 
-- CSV file uses semicolon (;) as a separator.
-- Column names were cleaned with `.str.strip()` to avoid `KeyError`.
+💡 Kullanıcı Arayüzü
+Kullanıcı, açılış fiyatı, en yüksek/düşük değerler, hacim ve piyasa değerini girer. Model bu değerlere göre bir sonraki günün kapanış fiyatını tahmin eder.
 
-## ✍️ Contribution
 
-Feel free to fork the project, suggest improvements, or add new features like LSTM or technical indicators.
 
-## 📜 License
+📦 Model
+Model: RandomForestRegressor
 
+Skor: R² ≈ 0.984, RMSE ≈ 0.0021
+
+
+🧪 Eğitim Amaçlıdır
+Bu proje yalnızca eğitim ve demo amaçlıdır. Gerçek yatırım kararlarında kullanılmamalıdır.
+
+
+🪪 Lisans
 MIT License
-
